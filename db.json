@@ -1,17 +1,17 @@
 {
-    "productos": [
+    "products": [
       {
         "id": 1,
-        "nombre": "Jugo de Zanahoria",
+        "nombre": "Carrot Juice",
         "precio": "31111"
       },
       {
         "id": 2,
-        "nombre": "Jugo de Naranja",
+        "nombre": "Orange Juice",
         "precio": "1"
       },
       {
-        "nombre": "Jugo de Naranja",
+        "nombre": "Orange Juice",
         "precio": "300",
         "id": 3
       },
@@ -21,7 +21,7 @@
         "id": 4
       },
       {
-        "nombre": "Jugo de Fresa",
+        "nombre": "Strawberry Juice",
         "precio": "200",
         "id": 5
       }
