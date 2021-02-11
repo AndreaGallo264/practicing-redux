@@ -1,6 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { newProductAction } from '../actions/productsActions';
 
 const NewProduct = () => {
+    const [name, saveName] = useState('');
+    const [prize, savePrize] = useState(0);
+
+    const dispatch = useDispatch();
+    //Calls action of product action
+    const newProduct = product => dispatch(newProductAction(product));
+
+    const submitNewProduct = e => {
+        e.preventDefault();
+        //Validate form
+        if(name.trim() === '' || prize <= 0)
+            return;
+        //Validate errors
+        //Create new product
+        newProduct({
+            name,
+            prize
+        });
+    }
+
     return ( 
         <div className="row justify-content-center">
             <div className="col-md-8">
@@ -11,7 +33,9 @@ const NewProduct = () => {
                         </h2>
                     </div>
                     <div className="card-body">
-                        <form action="">
+                        <form
+                            onSubmit = {submitNewProduct}
+                        >
                             <div className="form-group">
                                 <label>
                                     Product Name
@@ -22,6 +46,8 @@ const NewProduct = () => {
                                     placeholder='e.g.: Orange Juice'
                                     name='Name'
                                     required
+                                    value = {name}
+                                    onChange = {e => saveName(e.target.value)}
                                 />
                                 <label>
                                     Product price
@@ -32,6 +58,8 @@ const NewProduct = () => {
                                     placeholder='e.g.: 10'
                                     name='Price'
                                     required
+                                    value = {prize}
+                                    onChange = {e => savePrize(Number(e.target.value))}
                                 />
                             </div>
                             <button
